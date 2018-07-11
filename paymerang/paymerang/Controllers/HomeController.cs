@@ -22,15 +22,15 @@ namespace paymerang.Controllers
             List<PayInfo> remittance = JsonToFile<PayInfo>.ReadJson();
         
             ViewBag.payees = from vendor in payee select new {
-                vendor.Name, vendor.Fax, vendor.Phone, vendor.Address
+                vendor.PayeeName, vendor.PayeeFax, vendor.PayeePhone, vendor.PayeeAddress
             };
 
-            ViewBag.payments = from data in payment select new {
-                payData.PAN, payData.CVV, payData.Exp
+            ViewBag.payments = from payData in payment select new {
+                payData.PaymentPAN, payData.PaymentCVV, payData.PaymentExp
             };
 
             ViewBag.remittance = from remitData in remittance select new {
-                remitData.PayorName, remitData.PayorId, remitData.InvoiceNo, remitData.Description, remitData.Amount
+                remitData.RemittancePayorName, remitData.RemittancePayorId, remitData.RemittanceInvoiceNo, remitData.RemittanceDescription, remitData.RemittanceAmount
             };
             return View("Index");
         }
