@@ -9,33 +9,38 @@
 <body>
     <h1>Paymerang Client billing info:</h1>
     <table>
+
+         
         <tr>
-            <th>Payee</th>
+            @foreach (var payee in ViewBag.payee){
+               
+            }
+            <th>Payee</th> 
             <th>Payment Info:</th> 
             <th>Remittance</th>
         </tr>
         <tr>
-            <td>Name</td>
-            <td>PAN</td>
-            <td>Payor Name</td>
+            <td>Name</td>@ViewBag.payee.PayeeName
+            <td>PAN</td>@ViewBag.payment.PaymentPAN
+            <td>Payor Name</td>@ViewBag.remittance.RemittancePayorName
 
         </tr>
         <tr>
-            <td>Fax</td> 
-            <td>CVV</td> 
-            <td>Payor ID</td> 
+            <td>Fax</td> @ViewBag.payee.PayeeFax
+            <td>CVV</td> @ViewBag.payment.PaymentCVV
+            <td>Payor ID</td> @ViewBag.remittance.RemittancePayorId
 
         </tr>  
         <tr>    
-            <td>Phone Number</td>
-            <td>Exp</td>
-            <td>Invoice No.</td>
+            <td>Phone Number</td> @ViewBag.payee.PayeePhone
+            <td>Exp</td> @ViewBag.payment.PaymentExp
+            <td>Invoice No.</td> @ViewBag.remittance.RemittanceInvoiceNo
 
         </tr>  
         <tr>    
-            <td>Address</td>
-            <td>Description</td>
-            <td>Amount</td>
+            <td>Address</td> @ViewBag.payee.PayeeAddress
+            <td>Description</td> @ViewBag.remittance.RemittanceDescription
+            <td>Amount</td> @ViewBag.remittance.RemittanceAmount
         </tr>       
    </table>
    
