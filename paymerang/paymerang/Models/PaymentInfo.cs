@@ -13,7 +13,7 @@ namespace JsonData {
 
         public string PayeePhone;
 
-        public string PayeeAddress;
+        public List<string> PayeeAddress;
 //
         public string PaymentPAN;
         public string PaymentCVV;
