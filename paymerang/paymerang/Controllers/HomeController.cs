@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 //
 using System.Linq;
-using JsonData;
+using JsonData.Models;
 using paymerang;
 
 namespace paymerang.Controllers
@@ -17,10 +17,12 @@ namespace paymerang.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            
+            
             List<PayInfo> payee = JsonToFile<PayInfo>.ReadJson();
-            List<PayInfo> payment = JsonToFile<PayInfo>.ReadJson();
-            List<PayInfo> remittance = JsonToFile<PayInfo>.ReadJson();
-        
+            List<PaymentAddress> payment = JsonToFile<PaymentAddress>.ReadJson();
+            List<Remittance> remittance = JsonToFile<Remittance>.ReadJson();
+        //going to scrap ViewBag approach
             ViewBag.payees = from vendor in payee select new {
                 vendor.PayeeName, vendor.PayeeFax, vendor.PayeePhone, vendor.PayeeAddress
             };
