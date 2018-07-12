@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- Using model binding on front end -->
 @model JsonData.PayInfo
-@model IEnumerable<JsonData.Models.PayInfo></YourNamespace.Models.Product>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,8 @@
 </head>
 <body>
     <h1>Paymerang Client billing info:</h1>
+    
+    <h2>@Model.PayInfo</h2>
     <table>
 
          

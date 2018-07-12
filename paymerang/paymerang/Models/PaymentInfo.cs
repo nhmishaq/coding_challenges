@@ -10,6 +10,8 @@ namespace JsonData.Models {
         public string PaymentPAN;
         public string PaymentCVV;
         public string PaymentExp;
+        List<Remittance> remittanceLines;
+        public PaymentAddress Address;
     }
     public class PaymentAddress {
         
@@ -28,13 +30,3 @@ namespace JsonData.Models {
         public string RemittanceAmount;
     }
 }
-
-        // List<PayInfo> payment = JsonToFile<PayInfo>.ReadJson();
-        // // Dictionary<string, string> payment;
-        // Dictionary<string, string> remittance;
-
-        // public List<string> PayeeAddress;
-
-        // public List<string> Payee;
-        // public List<string> Payment;
-        // public List<string> Remittance;
