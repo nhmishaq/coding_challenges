@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Using model binding on front end -->
-@model JsonData.Models.PayInfo
+@model IEnumerable<JsonData.Models.PayInfo>
 
 <html lang="en">
 <head>
@@ -12,42 +12,42 @@
 <body>
     <h1>Paymerang Client billing info:</h1>
     
-    <h2>@Model.PayInfo</h2>
+  
     <table>
 
-         
-        <tr>
-            @foreach (var payResult in results){
-               
+         @{
+        <!-- <tr> -->
+            @foreach(var payResult in Model){
+            <th>Payee $@payResult.PayeeName </th>
+            <th>Payment Info:  $@payResult.RemittanceAmount </th>
+            <th>Remittance $@payResult.RemittancePayorName </th> 
             
-            <th>Payee</th> @payResult.PayeeName
-            <th>Payment Info:</th> @payResult.RemittanceAmount
-            <th>Remittance</th> @payResult.RemittancePayorName
-        </tr>
+        <!-- </tr> -->
         <tr>
-            <td>Name</td> @payResult.PayeeName
-            <td>PAN</td> @payResult.PaymentPAN
-            <td>Payor Name</td> @payResult.PayeeName
+            <td>Name</td> $@payResult.PayeeName
+            <td>PAN</td> $@payResult.PaymentPAN
+            <td>Payor Name</td> $@payResult.PayeeName
 
         </tr>
         <tr>
-            <td>Fax</td> @payResult.PayeeFax
-            <td>CVV</td> @payResult.PaymentCVV
-            <td>Payor ID</td> @payResult.RemittancePayorId
+            <td>Fax</td> $@payResult.PayeeFax
+            <td>CVV</td> $@payResult.PaymentCVV
+            <td>Payor ID</td> $@payResult.RemittancePayorId
 
         </tr>  
         <tr>    
-            <td>Phone Number</td> @payResult.PayeePhone
-            <td>Exp</td> @payResult.remittanceLines.RemittanceInvoiceNo
-            <td>Invoice No.</td> @payResult.Remittance.RemittanceInvoiceNo
+            <td>Phone Number</td> $@payResult.PayeePhone
+            <td>Exp</td> $@payResult.remittanceLines.RemittanceInvoiceNo
+            <td>Invoice No.</td> $@payResult.Remittance.RemittanceInvoiceNo
 
         </tr>  
         <tr>    
-            <td>Address</td> @payResult.PaymentAddress
-            <td>Description</td> @payResult.remittanceLines.RemittanceDescription
-            <td>Amount</td> @payResult.Remittance.RemittanceAmount
+            <td>Address</td> $@payResult.PaymentAddress
+            <td>Description</td> $@payResult.remittanceLines.RemittanceDescription
+            <td>Amount</td> $@payResult.Remittance.RemittanceAmount
         </tr>  
-        }     
+        }  
+    }   
    </table>
    
 </body>
