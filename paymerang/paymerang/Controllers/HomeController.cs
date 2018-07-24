@@ -19,6 +19,7 @@ namespace paymerang.Controllers
         public IActionResult Index()
         {
             var result = new paymerang.JsonToFile<PayInfo>();
+            // PayInfo payInfo = JsonConvert.DeserializeObject<PayInfo>(File.ReadAllText(@"c:\sample.json"));
             return View(result);
         }
     }

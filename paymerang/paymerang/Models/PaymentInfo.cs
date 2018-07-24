@@ -10,8 +10,9 @@ namespace JsonData.Models {
         public string PaymentPAN;
         public string PaymentCVV;
         public string PaymentExp;
-        List<Remittance> remittanceLines;
         public PaymentAddress Address;
+        public List<Remittance> RemittanceLines;
+        
     }
     public class PaymentAddress {
         
