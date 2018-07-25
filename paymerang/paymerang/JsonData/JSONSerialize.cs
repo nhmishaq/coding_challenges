@@ -18,7 +18,8 @@ namespace paymerang
             {
                 JsonSerializer serializer = new JsonSerializer();
                 PayInfo payInfoData = (PayInfo)serializer.Deserialize(file, typeof(PayInfo));
-                return payInfoData;         
+                return payInfoData;   
+            }      
         }
     }
 }

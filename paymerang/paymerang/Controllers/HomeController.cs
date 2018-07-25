@@ -18,9 +18,9 @@ namespace paymerang.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            var data = new PayInfo();
             var result = new paymerang.JsonToFile<PayInfo>();
-            // PayInfo payInfo = JsonConvert.DeserializeObject<PayInfo>(File.ReadAllText(@"c:\sample.json"));
-            return View(result);
+            return View();
         }
     }
 }

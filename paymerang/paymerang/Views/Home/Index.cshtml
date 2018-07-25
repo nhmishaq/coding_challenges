@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Using model binding on front end -->
-<!-- model JsonData.Models.PayInfo -->
+@model JsonData.Models.PayInfo
 
 
 <html lang="en">
@@ -9,16 +9,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../../wwwroot/css/site.css">
+    <style>
+        body {background-color: #f5f5f5;
+        width: 1000px;}
+        h1   {color: #5a1414;}
+        p    {color: #blue;}
+        table{width: 400px;
+        }
+        table, th, td {
+        border: 1px solid black;
+        width: 100%;
+        }
+        th {
+        height: 50px;
+        text-align: left;
+        max-width:100%;
+        white-space:nowrap;
+        }
+        th, td {
+        padding: 15px;
+        text-align: left;
+        }   
+
+        tr:hover {background-color: #f5f5f5;}
+        .headers{width: 800px;}
+        #FirstCell{
+            width:800px;
+        }
+    </style>
+    
 </head>
 <body>
-    <h1>Paymerang Client billing info:</h1>
-    @ViewBag.result
-  
+    <h1 id="fancy">Paymerang Client billing info:</h1>
+    <h2>   </h2>
+    
+  <div style="overflow-x:auto;">
     <table>
-
+        <div class="headers">
+            <th id="FirstCell">PayInfo</th>
+            <th id="SecondCell">Payment Address</th>
+            <th id="ThirdCell">Remittance</th>
+        </div>
+        <tr>Data</tr>
+            <td>Payee Name</td>
+            <td>Payee Fax</td>
+            <td>Payee Phone</td>
+            <td>Payment PAN</td>
+            <td>Payment CVV</td>
+            <td>Payment Exp</td>
         
-   </table>
-   
+            <td>Address 1</td> 
+            <td>Address 2</td> 
+            <td>City</td> 
+            <td>State or Province</td> 
+            <td>Zip</td>    
+        
+            <td>RemittancePayorName</td>
+            <td>RemittancePayorId</td>
+            <td>RemittanceInvoiceNo</td>
+            <td>RemittanceDescription</td>
+            <td>RemittanceAmount</td>        
+    </table>
+   </div>
 </body>
 </html>
 

@@ -1,1 +1,13 @@
 /*Write all of your CSS here*/
+*{
+    background-color: #5a1414;
+}
+#fancy{
+    background-color: aqua;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+}
+h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+}
