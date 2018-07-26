@@ -18,9 +18,8 @@ namespace paymerang.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            var data = new PayInfo();
-            var result = new paymerang.JsonToFile<PayInfo>();
-            return View();
+            PayInfo payData = JsonToFile<PayInfo>.ReadJson();
+            return View(payData);
         }
     }
 }
