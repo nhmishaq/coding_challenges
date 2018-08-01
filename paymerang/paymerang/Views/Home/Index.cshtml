@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- Using model binding on front end -->
-@model JsonData.Models.PayInfo
+@model JsonData.Models.PayInfo[]
+
 
 
 <html lang="en">
@@ -54,7 +55,10 @@
             <th id="SecondCell">Payment Address</th>
             <th id="ThirdCell">Remittance</th>
         </div>
-        <h1>Pay Data @payData </h1>
+        <h1>Pay Data</h1>
+        @foreach (PayInfo[] paymentData in @Model.payData[payData]){
+
+        
         <tr>Data</tr>
             <td>Payee Name</td>
             <td>Payee Fax</td>
@@ -73,7 +77,8 @@
             <td>RemittancePayorId</td>
             <td>RemittanceInvoiceNo</td>
             <td>RemittanceDescription</td>
-            <td>RemittanceAmount</td>        
+            <td>RemittanceAmount</td> 
+        }       
     </table>
    </div>
 </body>

@@ -9,15 +9,15 @@ namespace paymerang
     public class JsonToFile<T> {
         public object PayInfo { get; internal set; }
         
-        public static PayInfo ReadJson() {
+        public static PayInfo[] ReadJson() {
             // read file into a string and deserialize JSON to a type
-            PayInfo payInfoData1 = JsonConvert.DeserializeObject<PayInfo>(File.ReadAllText(@"/Users/MuhammadIshaq/Desktop/DojoAssignments/codingChallenges/paymerang/paymerang/JsonData/sample.json"));
+            PayInfo[] payInfoData1 = JsonConvert.DeserializeObject<PayInfo[]>(File.ReadAllText(@"/Users/MuhammadIshaq/Desktop/DojoAssignments/codingChallenges/paymerang/paymerang/JsonData/sample.json"));
 
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@"/Users/MuhammadIshaq/Desktop/DojoAssignments/codingChallenges/paymerang/paymerang/JsonData/sample.json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                PayInfo payInfoData = (PayInfo)serializer.Deserialize(file, typeof(PayInfo));
+                PayInfo[] payInfoData = (PayInfo[])serializer.Deserialize(file, typeof(PayInfo[]));
                 return payInfoData;   
             }      
         }
