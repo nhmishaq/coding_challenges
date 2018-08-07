@@ -5,30 +5,30 @@ using paymerang;
 namespace JsonData.Models {
     //Seperated PayInfo, PaymentAddress, and Remittance into their own classes.
     public class PayInfo {
-        public string PayeeName;
-        public string PayeeFax;
-        public string PayeePhone;
-        public string PaymentPAN;
-        public string PaymentCVV;
-        public string PaymentExp;
-        public PaymentAddress Address;
-        public List<Remittance> RemittanceLines;
-        
+        public string PayeeName { get; set; }
+        public string PayeeFax { get; set; }
+        public string PayeePhone { get; set; }
+        public string PaymentPAN { get; set; }
+        public string PaymentCVV { get; set; }
+        public string PaymentExp { get; set; }
+        public PaymentAddress Address { get; set; }
+        public List<Remittance> RemittanceLines { get; set; }
+    
     }
     public class PaymentAddress {
         
-        public string Address1;
-        public string Address2;
-        public string city;
-        public string StateOrProvince;
-        public string Zip;
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string StateOrProvince { get; set; }
+        public string Zip { get; set; }
 
     }
     public class Remittance {
-        public string RemittancePayorName;
-        public string RemittancePayorId;
-        public string RemittanceInvoiceNo;
-        public string RemittanceDescription;
-        public string RemittanceAmount;
+        public string PayorName { get; set; }
+        public string PayorId { get; set; }
+        public string InvoiceNo { get; set; }
+        public string Description { get; set; }
+        public string Amount { get; set; }
     }
 }

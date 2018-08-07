@@ -8,7 +8,6 @@ using System.Linq;
 using JsonData.Models;
 using paymerang;
 using Newtonsoft.Json;
-
 namespace paymerang.Controllers
 {
     public class HomeController : Controller

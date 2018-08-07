@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- Using model binding on front end -->
-@model JsonData.Models.PayInfo[]
-
+@model PayInfo[]
+@using JsonData.Models
 
 
 <html lang="en">
@@ -56,28 +56,26 @@
             <th id="ThirdCell">Remittance</th>
         </div>
         <h1>Pay Data</h1>
-        @foreach (PayInfo[] paymentData in @Model.payData[payData]){
-
-        
+        @foreach (PayInfo paymentData in @Model){
         <tr>Data</tr>
-            <td>Payee Name</td>
-            <td>Payee Fax</td>
-            <td>Payee Phone</td>
-            <td>Payment PAN</td>
-            <td>Payment CVV</td>
-            <td>Payment Exp</td>
+            <td>Payee Name @paymentData.PayeeName</td>
+            <td>Payee Fax @paymentData.PayeeFax</td>
+            <td>Payee Phone @paymentData.PayeePhone</td>
+            <td>Payment PAN @paymentData.PaymentPAN</td>
+            <td>Payment CVV @paymentData.PaymentCVV</td>
+            <td>Payment Exp @paymentData.PaymentExp</td>
         
-            <td>Address 1</td> 
-            <td>Address 2</td> 
-            <td>City</td> 
-            <td>State or Province</td> 
-            <td>Zip</td>    
+            <td>Address 1 @paymentData.Address</td> 
+            <td>Address 2 @paymentData.Address</td> 
+            <td>City @paymentData.Address</td> 
+            <td>State or Province @paymentData.Address</td> 
+            <td>Zip @paymentData.Address</td>    
         
-            <td>RemittancePayorName</td>
-            <td>RemittancePayorId</td>
-            <td>RemittanceInvoiceNo</td>
-            <td>RemittanceDescription</td>
-            <td>RemittanceAmount</td> 
+            <td>RemittancePayorName @paymentData.RemittanceLines</td>
+            <td>RemittancePayorId @paymentData.RemittanceLines</td>
+            <td>RemittanceInvoiceNo @paymentData.RemittanceLines</td>
+            <td>RemittanceDescription @paymentData.RemittanceLines</td>
+            <td>RemittanceAmount @paymentData.RemittanceLines</td> 
         }       
     </table>
    </div>
