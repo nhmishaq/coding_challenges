@@ -31,37 +31,110 @@
         }
         tr:hover {background-color: #f5f5f5;}
 
+                /* Dropdown Button */
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #ddd}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
+
     </style>
 </head>
 <body>
     <h1>List of all clients</h1>
     <table>
-        <tr>
-            <th>Client id</th>
-            <th>Client Name</th>
+        <tr>            
+            <th>Client id </th>
+            <th>Client Name </th>
         </tr>
-        <tr>Client id:</tr>
-        <tr>Client Name:</tr>
+        @foreach (var person in @ViewBag.viewAllPortals){
+            <tr>Client id: person.portal_id </tr>
+            <tr>Client Name: person.portal_nm</tr>
+        }
+    </table>
+
+
+    <h1>Select a client to see the courses they've registered for</h1>
+    <table>
+        <tr>            
+            <th>Client id </th>
+            <th>Client Name </th>
+        </tr>
+        @foreach (var person in @ViewBag.viewAllPortals){
+            <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="clientCourseList">person.portal_nm</a>
+                </div>
+            </div>
+            <tr>Client id: person.portal_id </tr>
+            <tr>Client Name: person.portal_nm</tr>
+        }
     </table>
 
     <h1>List of courses listed for selected client</h1>
-    <h2>Client Name: </h2>
+    <h2>Client Name: ViewBag.viewCourses</h2>
     <table>
         <tr>
             <th>Course id</th>
             <th>Course name</th>
         </tr>
-        <tr>Course id: </tr>
-        <tr>Course name: </tr>
+        foreach (var course in ViewBag.viewCourses){
+            <tr>Course id: course.course_id </tr>
+            <tr>Course Name: course.portal_nm</tr>
+        }
     </table>
     
     <h1>List of users that registered for this course:</h1>
-    <h2>Course Name: </h2>
+    <h2>Course Name: @ViewBag.registration_list </h2>
     <table>
         <tr>
             <th>User ID</th>
             <th>User Name</th>
         </tr>
+        foreach (var regUser in ViewBag.registration_list){
+            <tr>Registration id: regUser.registration_id </tr>
+            <tr>First Name: regUser.portal_nm</tr>
+            <tr>Registration Time: regUser.registration_dttm</tr>
+        }
         <tr>User id</tr>
         <tr>User name: </tr>
     </table>
