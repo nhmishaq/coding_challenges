@@ -8,6 +8,8 @@ using System.Linq;
 using JsonData.Models;
 using paymerang;
 using Newtonsoft.Json;
+using System.IO;
+
 namespace paymerang.Controllers
 {
     public class HomeController : Controller
@@ -16,8 +18,8 @@ namespace paymerang.Controllers
         [HttpGet]
         [Route("")]
         public IActionResult Index()
-        {
-            PayInfo[] payData = JsonToFile<PayInfo[]>.ReadJson();
+        {   
+            var payData = paymerang.JsonToFile<PayInfo>.ReadJson();
             return View(payData);
         }
     }

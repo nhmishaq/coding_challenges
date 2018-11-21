@@ -3,20 +3,43 @@ using Newtonsoft.Json;
 using paymerang;
 
 namespace JsonData.Models {
-    //Seperated PayInfo, PaymentAddress, and Remittance into their own classes.
-    public class PayInfo {
-        public string PayeeName { get; set; }
-        public string PayeeFax { get; set; }
-        public string PayeePhone { get; set; }
-        public string PaymentPAN { get; set; }
-        public string PaymentCVV { get; set; }
-        public string PaymentExp { get; set; }
-        public PaymentAddress Address { get; set; }
-        public List<Remittance> RemittanceLines { get; set; }
-    
+
+
+    public class PayInfo
+    {
+
+        public Payee Payee { get; set; }
+        public Payment Payment { get; set; }
+        public List<Remittance> Remittance { get; set; }
+
     }
-    public class PaymentAddress {
-        
+    public class Payee
+    {
+        [JsonProperty("Name")]
+        public string PayeeName { get; set; }
+
+        [JsonProperty("Fax")]
+        public string PayeeFax { get; set; }
+
+        [JsonProperty("Phone")]
+        public string PayeePhone { get; set; }
+
+        public Address Address { get; set; }
+
+        public string Attention { get; set; }
+        public string SubmissionDate { get; set; }
+        public string PaymentExp { get; set; }
+    }
+
+
+    public class Payment
+    {
+        public string PAN { get; set; }
+        public string CVV { get; set; }
+        public string Exp { get; set; }
+    }
+    public class Address
+    {
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
@@ -24,7 +47,8 @@ namespace JsonData.Models {
         public string Zip { get; set; }
 
     }
-    public class Remittance {
+    public class Remittance
+    {
         public string PayorName { get; set; }
         public string PayorId { get; set; }
         public string InvoiceNo { get; set; }

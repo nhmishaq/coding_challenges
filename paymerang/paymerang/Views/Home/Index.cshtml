@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!-- Using model binding on front end -->
-@model PayInfo[]
-@using JsonData.Models
+
+using JsonData.Models
+model JsonData.Models.PayInfo
 
 
 <html lang="en">
@@ -45,8 +46,8 @@
     
 </head>
 <body>
-    <h1 id="fancy">Paymerang Client billing info:</h1>
-    <h2>   </h2>
+    <h1 id="fancy">Paymerang</h1>
+    <h2 id="fancy">Unleash the Power of Electronic Payments </h2>
     
   <div style="overflow-x:auto;">
     <table>
@@ -56,29 +57,34 @@
             <th id="ThirdCell">Remittance</th>
         </div>
         <h1>Pay Data</h1>
-        @foreach (PayInfo paymentData in @Model){
-        <tr>Data</tr>
-            <td>Payee Name @paymentData.PayeeName</td>
-            <td>Payee Fax @paymentData.PayeeFax</td>
-            <td>Payee Phone @paymentData.PayeePhone</td>
-            <td>Payment PAN @paymentData.PaymentPAN</td>
-            <td>Payment CVV @paymentData.PaymentCVV</td>
-            <td>Payment Exp @paymentData.PaymentExp</td>
-        
-            <td>Address 1 @paymentData.Address</td> 
-            <td>Address 2 @paymentData.Address</td> 
-            <td>City @paymentData.Address</td> 
-            <td>State or Province @paymentData.Address</td> 
-            <td>Zip @paymentData.Address</td>    
-        
-            <td>RemittancePayorName @paymentData.RemittanceLines</td>
-            <td>RemittancePayorId @paymentData.RemittanceLines</td>
-            <td>RemittanceInvoiceNo @paymentData.RemittanceLines</td>
-            <td>RemittanceDescription @paymentData.RemittanceLines</td>
-            <td>RemittanceAmount @paymentData.RemittanceLines</td> 
-        }       
+        foreach (var payeeDetails in Model){
+            <tr>payeeDetails.Payee</tr>
+            <td>payeeDetails.Payee.PayeeName</td>
+            <td>payeeDetails.Payee.PayeeFax</td>
+            <td>payeeDetails.Payee.PayeePhone</td>
+            <td>payeeDetails.Payee.PayeeAddress</td>
+            <td>payeeDetails.Payee.Attention</td>
+            <td>payeeDetails.Payee.SubmissionDate</td>
+            <td>payeeDetails.Payee.PaymentExp</td>
+
+            <tr>payeeDetails.Payment.PAN</tr>
+            <td>payeeDetails.Payment.CVV</td>
+            <td>payeeDetails.Payment.EXP</td>
+
+            <tr>payeeDetails.Address.Address1</tr>
+            <td>payeeDetails.Address.Address2</td>
+            <td>payeeDetails.Address.City</td>
+            <td>payeeDetails.Address.StateOrProvince</td>
+            <td>payeeDetails.Address.Zip</td>
+
+            <tr>payeeDetails.Remittance.PayorName</tr>
+            <td>payeeDetails.Remittance.PayorID</td>
+            <td>payeeDetails.Remittance.InvoiceNo</td>
+            <td>payeeDetails.Remittance.Description</td>
+            <td>payeeDetails.Remittance.Amount</td>
+
+        }
     </table>
    </div>
 </body>
 </html>
-
